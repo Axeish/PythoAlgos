@@ -1,3 +1,15 @@
+# KRUSKAL(G):
+# 1 A = ∅
+# 2 foreach v ∈ G.V:
+# 3    MAKE-SET(v)
+# 4 foreach (u, v) in G.E ordered by weight(u, v), increasing:
+# 5    if FIND-SET(u) ≠ FIND-SET(v):
+# 6       A = A ∪ {(u, v)}
+# 7       UNION(u, v)
+# 8 return A
+
+
+
 class Graph(object):
     def __init__(self):
         self.g = {}
