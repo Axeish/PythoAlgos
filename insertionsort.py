@@ -1,27 +1,21 @@
-#!/usr/bin/env python
-# coding: utf-8
+import operator
 
-# Worst Case:    O(n^2)
-# Best Case:     O(n)
-# Average Case:  O(n^2)
+def ins_sort(a,op):
+    for j in range(1,len(a)):
+        key = a[j]
+        print key
+	i=j-1
+	while i>=0 and op(a[i],key):
+		a[i+1] = a[i]
+		i=i-1
+  	a[i+1]=key
+    return a
 
-def insertionsort(array):
-    """Run insertionsort on a list
 
-    >>> a = [45,67,2,3,5,7,898,9,6,5,4,33,3,35566,1]
-    >>> insertionsort(a)
-    >>> print(a)
-    [1, 2, 3, 3, 4, 5, 5, 6, 7, 9, 33, 45, 67, 898, 35566]
-    """
+n = int(raw_input())
+arr = map(int,raw_input().strip().split())
 
-    for i in range(1, len(array)):
-        value_to_insert = array[i]
-        hole_index = i
-        while hole_index > 0 and value_to_insert < array[hole_index - 1]:
-            array[hole_index] = array[hole_index - 1]
-            hole_index -= 1
-        array[hole_index] = value_to_insert
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+print arr
+assd = ins_sort(arr,operator.gt)
+print arr
